@@ -7,7 +7,7 @@ abstract class Protocol {
   int get color;
   String get protocolColor;
   String get name;
-  List<Card> get cards;
+  List<Card?> get cards;
   Widget buildWidget(){
     return Text("data");
   }
