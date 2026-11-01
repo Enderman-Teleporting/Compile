@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:auto_orientation_v2/auto_orientation_v2.dart';
 import 'package:client/navigator/NavigatorList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +17,7 @@ class Lobby extends StatelessWidget{
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, screenType) {
-        return AutoOrientationScope(
-          targetMode: AutoOrientationMode.landscapeRight,
-          onDisposeMode: AutoOrientationMode.portraitUp,
-          child: Scaffold(
+        return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.blueAccent,
               title: Row(
@@ -149,25 +145,25 @@ class Lobby extends StatelessWidget{
                   fit: BoxFit.cover,
                   width: 100.w,
                 ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  top: 10.h,
-                  child: Text(
-                    "Compile",
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      color: Colors.white70,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                // Positioned(
+                //   left: 0,
+                //   right: 0,
+                //   top: 10.h,
+                //   child: Text(
+                //     "Compile",
+                //     style: TextStyle(
+                //       fontSize: 20.sp,
+                //       color: Colors.white70,
+                //       fontWeight: FontWeight.bold,
+                //       fontStyle: FontStyle.italic,
+                //     ),
+                //     textAlign: TextAlign.center,
+                //   ),
+                // ),
                 Positioned(
                   left: 15.w,
                   right: 15.w,
-                  top: 30.h,
+                  top: 15.h,
                   bottom: 10.h,
                   child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -265,7 +261,6 @@ class Lobby extends StatelessWidget{
 
               ],
             )
-          )
         );
       }
     );

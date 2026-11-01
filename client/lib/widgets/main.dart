@@ -25,12 +25,12 @@ Future<void> main() async {
   Directory dir= await getApplicationSupportDirectory();
   file=File("${dir.path}/serverList.json");
   if(!await file.exists()){
-    dir.create();
-    file.create();
-    file.writeAsString('{"last":null}');
+    await dir.create();
+    await file.create();
+    await file.writeAsString('{"last":null}');
   }
-  String jsonStr=file.readAsStringSync();
-  jsonMap=jsonDecode(jsonStr);
+  String jsonStr=await file.readAsStringSync();
+  jsonMap=await jsonDecode(jsonStr);
   runApp(const InitPage());
 }
 void update(){

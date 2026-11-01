@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:auto_orientation_v2/auto_orientation_v2.dart';
+import 'package:client/cards/protocols/water/Water0.dart';
+import 'package:client/cards/protocols/water/WaterProtocol.dart';
 import 'package:client/navigator/NavigatorList.dart';
-import 'package:client/widgets/lobby/widget/Lobby.dart';
 import 'package:client/widgets/startupWindow/widget/InitPage.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -86,15 +87,16 @@ class Serverstate extends State<InitPage> {
       _register_password.text= "";
       _register_passwordAgain.text="";
     }
-    return MaterialApp(
-      routes: NavigatorList.ROUTERS,
-      debugShowCheckedModeBanner: false,
-      home: Sizer(
-        builder: (context, orientation, screenType){
-          return AutoOrientationScope(
-            targetMode: AutoOrientationMode.landscapeRight,
-            onDisposeMode: AutoOrientationMode.portraitUp,
-            child: Stack(
+
+    return AutoOrientationScope(
+      targetMode: AutoOrientationMode.landscapeRight,
+      onDisposeMode: AutoOrientationMode.portraitUp,
+      child: MaterialApp(
+        routes: NavigatorList.ROUTERS,
+        debugShowCheckedModeBanner: false,
+        home: Sizer(
+          builder: (context, orientation, screenType){
+            return Stack(
               alignment: AlignmentGeometry.center,
               children: [
                 Image.asset(
@@ -167,7 +169,7 @@ class Serverstate extends State<InitPage> {
                       jsonMap["last"] ?? "未选择服务器",
                       style: TextStyle(
                         fontSize: 18.sp,
-                        color: Colors.white70,
+                        color: Colors.blueGrey,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -672,9 +674,9 @@ class Serverstate extends State<InitPage> {
                   ),
                 ),
               ],
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
