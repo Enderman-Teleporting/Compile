@@ -22,5 +22,5 @@ class MultiverseProtocol extends Protocol {
   String get protocolColor => "";
 
   @override
-  Color get topCommandColor => Colors.white;
+  Color get topCommandColor => Colors.black;
 }
